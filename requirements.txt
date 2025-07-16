@@ -1,0 +1,5 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+pydantic-settings
+google-generativeai # La librería de Google AI
