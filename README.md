@@ -72,17 +72,6 @@ uvicorn chatbot_service.app.main:app --reload --port 8003
 ```
 * `chatbot_service.app.main:app`: Le indica a Uvicorn la ruta completa al objeto `app` de FastAPI.
 
-**Método Alternativo (Desde dentro de la carpeta del servicio):**
-```bash
-# Primero, entra en la carpeta del servicio
-cd chatbot_service
-
-# Luego, inicia el servidor
-uvicorn app.main:app --reload --port 8003
-```
-
-En ambos casos, el servicio estará corriendo y escuchando en **`http://localhost:8003`**.
-
 ## Endpoint de la API
 
 ### Enviar un Mensaje al Chatbot
