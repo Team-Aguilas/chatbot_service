@@ -5,6 +5,7 @@ from pydantic import BaseModel
 import google.generativeai as genai
 from dotenv import load_dotenv
 from pathlib import Path # 1. Importamos 'Path' para manejar rutas de forma segura
+from prometheus_fastapi_instrumentator import Instrumentator
 
 # 2. Construimos una ruta absoluta al archivo .env, esto es mucho más robusto
 # Asume que el script se corre desde la raíz 'market_place_project'
@@ -12,6 +13,8 @@ env_path = Path('.') / 'chatbot_service' / '.env'
 load_dotenv(dotenv_path=env_path)
 
 app = FastAPI(title="Chatbot Service")
+
+Instrumentator().instrument(app).expose(app)
 
 # 3. Movemos la inicialización del modelo dentro de un evento de startup
 #    para que los errores sean más claros al iniciar.
